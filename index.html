@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Exo 3 JS</title>
+	<link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+	<div id="container">
+		<div id="morpion">
+
+		</div>
+		<p id="turn">
+
+		</p>
+	</div>
+	<script>
+		morpion = document.querySelector("#morpion")
+		block = document.createElement("div");
+		block.classList.add("block");
+
+		var player
+		var tour
+		function theMorpion() {
+			var player = "X"
+			var tour = 0
+			for (let i = 1; i <= 9; i++) {
+				let newblock = block.cloneNode();
+				morpion.appendChild(newblock);
+				newblock.addEventListener("click", function () {
+					if (tour <= 8) {
+						if (newblock.classList.contains("prise")) {
+							alert("La Case est deja prise Margoulin !!!")
+						}
+						else {
+							if (player == "X") {
+								newblock.innerText = player
+								newblock.style.color = "red"
+								newblock.classList.add("prise")
+								player = "O"
+								tour++
+							}
+							else {
+								newblock.innerText = player
+								newblock.style.color = "green"
+								newblock.classList.add("prise")
+								player = "X"
+								tour++
+							}
+						}
+					}
+					else {
+
+					}
+				})
+			}
+		}
+		theMorpion()
+	</script>
+
+</body>
+
+</html>

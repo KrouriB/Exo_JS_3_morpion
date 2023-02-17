@@ -1,0 +1,36 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+#container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: black;
+	height: 100vh;
+	width: 100vw;
+}
+
+#morpion {
+	width: 660px;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 24px;
+}
+
+.block {
+	width: 200px;
+	height: 200px;
+	border-radius: 6px;
+	background-color: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 40px;
+}
+
+#turn {
+	color: white;
+}
