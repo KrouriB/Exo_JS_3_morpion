@@ -20,15 +20,24 @@
 		</p>
 	</div>
 	<script>
+		container = document.querySelector("#container")
 		morpion = document.querySelector("#morpion")
 		block = document.createElement("div");
 		block.classList.add("block");
-
+		turn = document.querySelector("#turn")
+		restart = document.createElement("INPUT")
+		restart.setAttribute("type", "button")
+		restart.value = "Restart"
+		restart.classList.add("restart")
+		restart.classList.add("hidden")
+		restart.addEventListener("click",theMorpion())
+		container.appendChild(restart)
 		var player
 		var tour
 		function theMorpion() {
 			var player = "X"
 			var tour = 0
+			turn.innerText = "C'est au tour de " + player + " jouer."
 			for (let i = 1; i <= 9; i++) {
 				let newblock = block.cloneNode();
 				morpion.appendChild(newblock);
@@ -55,12 +64,13 @@
 						}
 					}
 					else {
-
+						restart.classList.remove("hidden")
+						restart.classList.add("visible")
 					}
 				})
 			}
 		}
-		theMorpion()
+		
 	</script>
 
 </body>

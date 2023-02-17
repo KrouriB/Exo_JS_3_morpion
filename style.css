@@ -8,6 +8,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	flex-direction: column;
 	background-color: black;
 	height: 100vh;
 	width: 100vw;
@@ -33,4 +34,22 @@
 
 #turn {
 	color: white;
+}
+
+.restart {
+	width: 300px;
+	height: 80px;
+	border-radius: 8px;
+}
+
+.visible {
+	border: 1px solid red;
+	background: white;
+	color: black;
+}
+
+.hidden {
+	border: none;
+	background: none;
+	color: transparent;
 }
