@@ -18,6 +18,7 @@
 		<p id="turn">
 
 		</p>
+		<input type="button" value="Restart" class="restart">
 	</div>
 	<script>
 		container = document.querySelector("#container")
@@ -25,13 +26,8 @@
 		block = document.createElement("div");
 		block.classList.add("block");
 		turn = document.querySelector("#turn")
-		restart = document.createElement("INPUT")
-		restart.setAttribute("type", "button")
-		restart.value = "Restart"
-		restart.classList.add("restart")
+		restart = document.querySelector(".restart")
 		restart.classList.add("hidden")
-		restart.addEventListener("click",theMorpion())
-		container.appendChild(restart)
 		var player
 		var tour
 		function theMorpion() {
@@ -61,16 +57,27 @@
 								player = "X"
 								tour++
 							}
+							turn.innerText = "C'est au tour de " + player + " jouer."
 						}
 					}
 					else {
 						restart.classList.remove("hidden")
 						restart.classList.add("visible")
+						turn.innerText = "Partie terminée"
+						restart.addEventListener("click", function () {
+							var block9 = document.querySelectorAll(".block")
+							for (var i = 0; i < block9.length; i++) {
+								block9[i].remove()
+							}
+							theMorpion()
+							restart.classList.add("hidden")
+							restart.classList.remove("visible")
+						})
 					}
 				})
 			}
 		}
-		
+		theMorpion()
 	</script>
 
 </body>
